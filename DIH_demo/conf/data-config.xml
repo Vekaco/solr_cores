@@ -1,0 +1,25 @@
+<dataConfig>
+<dataSource name="fileDataSource" type="FileDataSource"/>
+<!--
+<document>
+<entity name="tika-test" processor="TikaEntityProcessor"
+url="C:/docs/solr-word.pdf" format="text">
+<field column="Author" name="author" meta="true"/>
+<field column="title" name="title" meta="true"/>
+<field column="text" name="text"/>
+</entity>
+</document>
+-->
+<dataSource name="urlDataSource" type="BinURLDataSource"/>
+<document>
+<entity name="files" dataSource="null" rootEntity="false"
+processor="FileListEntityProcessor" baseDir="c:/docs" fileName=".*\.(doc)|(pdf)|(docx)|(txt)" onError="skip" recursive="true">
+<field column="fileAbsolutePath" name="filePath"/>
+<field column="fileSize" name="size"/>
+<field column="fileLastModified" name="lastModified"/>
+<entity processor="PlainTextEntityProcessor" name="txtfile" url="${files.fileAbsolutePath}" dataSource="fileDataSource">
+<field column="plainText" name="text"/>
+</entity>
+</entity>
+</document>
+</dataConfig>

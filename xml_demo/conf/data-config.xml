@@ -1,0 +1,14 @@
+<dataConfig>
+  <dataSource name="fileDataSource" type="FileDataSource" encoding="UTF-8"/>
+  <document>
+     <entity name="books" processor="XPathEntityProcessor" dataSource="fileDataSource" stream="true" forEach="/catalog/book" url="c:/docs/books.xml" transformer="DateFormatTransformer">
+         <field column="id" xpath="/catalog/book/@id" multiValued="false" flatten="true"/>
+         <field column="title" xpath="/catalog/book/title"/>
+         <field column="genre" xpath="/catalog/book/genre"/>
+         <field column="author" xpath="/catalog/book/author"/>
+         <field column="price" xpath="/catalog/book/price"/>
+         <field column="publishDate" xpath="/catalog/book/publish_date" dateTimeFormat="yyyy-MM-dd"/>
+         <field column="description" xpath="/catalog/book/description"/>
+     </entity>
+  </document>
+</dataConfig>

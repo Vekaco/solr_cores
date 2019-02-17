@@ -1,0 +1,12 @@
+<dataConfig>
+  <dataSource name="jdbcDataSource" type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/solr?useUnicode=true&amp;characterEncoding=utf-8" user="root" password="mysql"/>
+  <document>
+     <entity dataSource="jdbcDataSource" name="user" query="select * from user">
+        <field column="id" name="id"/>
+        <field column="user_name" name="userName"/>
+        <field column="sex" name="sex"/>
+        <field column="birth" name="birth"/>
+        <field column="salary" name="salary"/>
+     </entity>
+  </document>
+</dataConfig>

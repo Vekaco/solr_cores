@@ -1,0 +1,13 @@
+<dataConfig>
+<dataSource name="fileDataSource" type="FileDataSource"/>
+<dataSource name="binFileDataSource" type="BinFileDataSource"/>
+<document>
+<entity name="office-files" dataSource="fileDataSource" rootEntity="false" processor="FileListEntityProcessor" baseDir="c:/docs" fileName=".*\.(doc)|(docx)|(pdf)|(xls)|(xlsx)|(ppt)|(pptx)" recursive="true">
+<entity name="tika-office-files" processor="TikaEntityProcessor" url="${office-files.fileAbsolutePath}" format="text" dataSource="binFileDataSource" onError="skip">
+<field column="Author" name="author" meta="true"/>
+<field column="title" name="title" meta="true"/>
+<field column="text" name="text"/>
+</entity>
+</entity>
+</document>
+</dataConfig>

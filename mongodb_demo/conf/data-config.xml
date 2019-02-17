@@ -1,0 +1,9 @@
+<dataConfig>
+  <dataSource name="mongoDataSource" type="MongoDataSource" database="solr-test" host="localhost" port="27017" username="test" password="123"/>
+  <document>
+     <entity name="book" processor="MongoEntityProcessor" query="{'lang':'en'}" collection="book" dataSource="mongoDataSource" rootEntity="true" onError="skip" transformer="MongoMapperTransformer">
+       <field column="bookName" name="bookName" mongoField="bookName"/>
+       <field column="lang" name="lang"/>
+     </entity>
+  </document>
+</dataConfig>

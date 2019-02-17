@@ -1,0 +1,7 @@
+<dataConfig>
+  <dataSource name="fileDataSource" type="FileDataSource" encoding="UTF-8"/>
+  <document>
+     <entity name="money" processor="XPathEntityProcessor" dataSource="fileDataSource" stream="true" useSolrAddSchema="true" forEach="/catalog/book" url="c:/docs/money.xml" transformer="DateFormatTransformer">
+     </entity>
+  </document>
+</dataConfig>

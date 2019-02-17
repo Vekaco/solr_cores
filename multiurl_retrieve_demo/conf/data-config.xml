@@ -1,0 +1,11 @@
+<dataConfig>
+  <dataSource name="fileDataSource" type="FileDataSource"/>
+  <dataSource name="urlDataSource" type="URLDataSource"/>
+  <document>
+     <entity name="line" processor="LineEntityProcessor" acceptLineRegex="^.*\.shtml$" url="c:/docs/seed.txt"  rootEntity="false" dataSource="fileDataSource">
+        <entity processor="PlainTextEntityProcessor" name="onlineTxtFile" url="${line.rawLine}" dataSource="urlDataSource">
+           <field column="plainText" name="text"/>
+        </entity>
+     </entity>
+  </document>
+</dataConfig>

@@ -1,0 +1,16 @@
+<dataConfig>
+<dataSource name="fileDataSource" type="FileDataSource"/>
+<dataSource name="binFileDataSource" type="BinFileDataSource"/>
+<document>
+<entity name="pdfs" dataSource="fileDataSource" rootEntity="false" processor="FileListEntityProcessor" baseDir="c:/docs" fileName=".*\.pdf" recursive="true">
+<field column="fileAbsolutePath" name="filePath"/>
+<field column="fileSize" name ="size"/>
+<field column="fileLastModified" name="lastModified"/>
+<entity name="tika-multifiles-test" processor="TikaEntityProcessor" url="${pdfs.fileAbsolutePath}" format="text" dataSource="binFileDataSource">
+<field column="Author" name="author" meta="true"/>
+<field column="title" name="title" meta="true"/>
+<field column="text" name="text"/>
+</entity>
+</entity>
+</document>
+</dataConfig>

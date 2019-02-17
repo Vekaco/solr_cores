@@ -1,0 +1,8 @@
+<dataConfig>
+<dataSource name="urlDataSource" type="URLDataSource"/>
+<document>
+<entity processor="PlainTextEntityProcessor" name="onlineTxtFile" url="http://tech.163.com/15/0527/16/AQKTMJB0000915BF.html" dataSource="urlDataSource">
+<field column="plainText" name="text"/>
+</entity>
+</document>
+</dataConfig>
